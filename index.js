@@ -1,10 +1,9 @@
-const express = require("express");
+import express from "express";
 const app = express();
-const { getSeoData } = require("./src/main");
+import { getSeoData } from "./src/main";
 
-app.get("/seo", async (req, res) => {
+app.get("/seo-checker", async (req, res) => {
   const url = req.query.url;
-  // demo comment
   try {
     const seoData = await getSeoData(url);
     res.status(200).json(seoData);
